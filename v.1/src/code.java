@@ -16,8 +16,8 @@ public class code {
     private static DecimalFormat df2 = new DecimalFormat("#.##");
 
 	public static void main(String args[]) throws IOException {
-		int peering_col = 3, k=5;
-		String input="turing_winners.tsv";
+		int peering_col = -1, k=3;
+		String input="usa_presidents.tsv";
 
 		//write to file in 'output folder'
 		inferUsefulNegations(input, peering_col, k);
@@ -39,6 +39,7 @@ public class code {
 		String line;
 		if ((line = br.readLine()) != null)
 		{
+			line=line.trim();
 			features=line.split("\t");
 		}
 		
@@ -61,12 +62,16 @@ public class code {
 				
 				if(st.get(features[i].trim())==null) {
 					Set<String> set= new HashSet<String>();
-					set.add(parts[i].trim());
+					String comma[]=parts[i].split(",");
+					for(int j=0; j<comma.length; j++)
+						set.add(comma[j].trim());
 					st.put(features[i].trim(), set);
 				}
 				else {
 					Set<String> set= st.get(features[i].trim());
-					set.add(parts[i].trim());
+					String comma[]=parts[i].split(",");
+					for(int j=0; j<comma.length; j++)
+						set.add(comma[j].trim());
 					st.put(features[i].trim(), set);
 				}
 				
@@ -74,18 +79,22 @@ public class code {
 				
 				
 				Set<String> e=null;
-				if(ST.get(features[i].trim()+"; "+parts[i].trim())==null)
+				String comma[]=parts[i].split(",");
+				for(int j=0; j<comma.length; j++)
 				{
-					e=new HashSet<String>();
-					e.add(entity);
+					if(ST.get(features[i].trim()+"; "+comma[j].trim())==null)
+					{
+						e=new HashSet<String>();
+						e.add(entity);
+					}
+					else
+					{
+						e=ST.get(features[i].trim()+"; "+comma[j].trim());
+						e.add(entity);
+					}
+					ST.put(features[i].trim()+"; "+comma[j].trim(), e);
+					table_as_triples.add(entity+features[i].trim()+comma[j].trim());
 				}
-				else
-				{
-					e=ST.get(features[i].trim()+"; "+parts[i].trim());
-					e.add(entity);
-				}
-				ST.put(features[i].trim()+"; "+parts[i].trim(), e);
-				table_as_triples.add(entity+features[i].trim()+parts[i].trim());
 			}			
 		}
 		br.close();
@@ -167,7 +176,7 @@ public class code {
 					peers.addAll(ST.get(peering_feature+"; "+v));
 				}
 				
-				if(peers==null || peers.size()<=3)
+				if(peers==null || peers.size()<3)
 					return E.keySet();
 				
 				return peers;
