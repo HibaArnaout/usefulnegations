@@ -1,4 +1,4 @@
-
+Entity  Results
 Vedanta Wake Up – Arapalayam Bus Stand	[1: ¬(hotel_facilities; Bathroom)=0.72 2: ¬(hotel_facilities; Food & Drink)=0.68 3: ¬(hotel_facilities; Laundry)=0.64]
 Hotel Skyview	[1: ¬(hotel_facilities; Activities)=0.47 2: ¬(hotel_facilities; Restaurant)=0.42 3: ¬(hotel_facilities; Services)=0.42]
 The Queeny	[1: ¬(hotel_facilities; Languages spoken)=0.74 2: ¬(hotel_facilities; Air conditioning)=0.6 3: ¬(hotel_facilities; Car hire)=0.51]
