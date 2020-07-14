@@ -1907,7 +1907,6 @@ Apartment in Royal Meadows	[1: ¬(hotel_facilities; Pets are not allowed.)=0.86 
 OYO Rooms Chetak Circle	[1: ¬(hotel_facilities; General)=0.83 2: ¬(hotel_facilities; Room service)=0.72 3: ¬(hotel_facilities; Bathroom)=0.72]
 Shabnam Resort	[1: ¬(hotel_facilities; Air conditioning)=0.6 2: ¬(hotel_facilities; Fan)=0.57 3: ¬(hotel_facilities; Free! WiFi is available in all areas and is free of charge.)=0.5]
 Hotel Shri Govind	[1: ¬(hotel_facilities; Bathroom)=0.72 2: ¬(hotel_facilities; Food & Drink)=0.68 3: ¬(hotel_facilities; Laundry)=0.64]
-Panchavadi "WeCare" Hotel&Ayurvedic Resort	[1: ¬(address; India – Show map)=0.74 2: ¬(hotel_facilities; Room service)=0.72 3: ¬(hotel_facilities; Food & Drink)=0.68]
 Vista Rooms near Gopalan Innovation Mall	[1: ¬(hotel_facilities; Room service)=0.72 2: ¬(hotel_facilities; Food & Drink)=0.68 3: ¬(hotel_facilities; 24-hour front desk)=0.67]
 Vista Rooms near Rajpath Club	[1: ¬(hotel_facilities; Languages spoken)=0.74 2: ¬(hotel_facilities; Room service)=0.72 3: ¬(hotel_facilities; Food & Drink)=0.68]
 Country Inn & Suites By Carlson Navi Mumbai	[1: ¬(hotel_facilities; Fan)=0.57 2: ¬(hotel_facilities; Shower)=0.55 3: ¬(hotel_facilities; Free! Free private parking is possible on site (reservation is not needed).)=0.48]
