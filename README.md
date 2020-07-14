@@ -47,7 +47,7 @@ After using the code, we would like to hear from you. For any suggestions, bugs,
 
 And check our webpage on useful negations in knowledge bases.
 
-References
+# References
 [1] [Enriching Knowledge Bases with Interesting Negative Statements.](https://www.akbc.ws/2020/assets/pdfs/pSLmyZKaS.pdf)
 
 [2] [5-min presentation summarizing the paper in [1]](https://www.youtube.com/watch?v=Q-C2MbzGXjc)
