@@ -22,14 +22,14 @@ We provid three sample input datasets*, but you can use your own. One example is
 For entities with multiple values for the same feature (multiple occupations and awards), the information can be concatenated in one comma-serparated value. Please check the full dataset, these can be found in "usefulnegations/v.1/".
 
 # Sources:
-turing_award_winners.tsv; source: [https://www.wikidata.org](https://www.wikidata.org) , 2) usa_presidents.tsv; source: [https://www.wikidata.org](https://www.wikidata.org) , 3) india_hotels.tsv; source: [https://www.booking.com](https://www.booking.com).
+1) turing_award_winners.tsv; source: [https://www.wikidata.org](https://www.wikidata.org) , 2) usa_presidents.tsv; source: [https://www.wikidata.org](https://www.wikidata.org) , 3) india_hotels.tsv; source: [https://www.booking.com](https://www.booking.com).
 
 # Code Parameters
 To run the main in "usefulnegations/v.1/src/code.java", you need *three* parameters:
 
-1.input file (.tsv), you can check input examples in "usefulnegations/v.1/".
-2. peering column (integer), speficifying the column you want the program to use for peering entities. For example, peering column = 2 is gender and = 3 is citizen in the above example.. which means, peering by entities sharing the same gender in the first case and the same citizenship in the second case. If you don't want to do peering at all (consider all entities in the dataset as peers), set this parameter to -1. For entities with less than 3 peers, the code falls back on the -1 option, as 1 and 2 peers are not enough.
-3. k (integer), how many useful negations for every entity (top-k).
+1) input file (.tsv), you can check input examples in "usefulnegations/v.1/".
+2) peering column (integer), speficifying the column you want the program to use for peering entities. For example, peering column = 2 is gender and = 3 is citizen in the above example.. which means, peering by entities sharing the same gender in the first case and the same citizenship in the second case. If you don't want to do peering at all (consider all entities in the dataset as peers), set this parameter to -1. For entities with less than 3 peers, the code falls back on the -1 option, as 1 and 2 peers are not enough.
+3) k (integer), how many useful negations for every entity (top-k).
 Column 0 is always assumed to be the entities column (people names, hotel names, product ids, etc...)
 
 # Output
