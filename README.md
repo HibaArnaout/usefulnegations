@@ -38,7 +38,7 @@ Column 0 is always assumed to be the entities column (people names, hotel names,
 # Output
 After running the code on your input, check "usefulnegations/v.1/output/".
 
-You will find your output file under the name negations_[peering_col]\_[k]\_[inputfilename].tsv For example, for the Turing Award winners, with gender for peering, and top-5 results for every entity, the output file name is "negations_2_5_turing_winners.tsv".
+You will find your output file under the name *negations_[peering_col]\_[k]\_[inputfilename].tsv* For example, for the Turing Award winners, with gender for peering, and top-5 results for every entity, the output file name is "negations_2_5_turing_winners.tsv".
 
 Some examples of results from this file: Format: entity [position: ¬(statement)=relative frequency...]
 **Tim Berners-Lee** [1: ¬*(citizen; United States of America)*=0.72 2: ¬*(occupation; mathematician)*=0.47 3: ¬*(employer; Stanford University)*=0.19 4: ¬*(field; informatics)*=0.18 5: ¬*(academic degree; Doctor of Philosophy)*=0.16]
