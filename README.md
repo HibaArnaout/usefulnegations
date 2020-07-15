@@ -1,16 +1,16 @@
 # usefulnegations
-Find out useful negations in your database.
+Find out useful negations in your dataset.
 
 # Overview
-This code allows you to input a tabular dataset (.tsv) containing information about entities (items) and receive an output file containing useful negations about the entities.
+This code takes as input a tabular dataset (.tsv) containing information about entities (items) and produces an output file containing useful negations about the entities.
 
 # Methodology
-The method used to retrieve useful negations is the **peer-based statistical inference** method in this work (full paper [1] and video-summary [2]). The method is explained in details in the paper, as well as 'what does a useful or interesting negation mean?'
+The method used to retrieve useful negations is the **peer-based statistical inference** method in ``Enriching Knowledge Bases with Negative Statements, Arnaout et al., AKBC 2020''  (full paper [1] and video-summary [2]). The method is explained in detail in the paper.
 
-Briefly: Given a structured-information store (in this case a tabular dataset), we want to discover **useful negative statements** about entities in the dataset. A useful negation is a negative statement about an entity that is *noteworthy*. Two examples are "**Stephen Hawking did not win the Nobel Pize in Physics**" and "**Iceland is not a member of the EU**". We discover these useful negations using what we call the *peer-based statistical inference method*. We select *highly* related entities (**peers**) to an entity e, that set expectations about e, where the negation of these expectations are potentially salient. Say, the dataset is about scientists, and the column titles (features) are: name, occupation(s), citizenship(s), gender, academic degree(s), award(s), etc... Then one reasonable feature to use for peering is occupation, where every winner's peers are other winners having a similar occupation(s). A local closed-world assumption is made within a group of peers. The peer groups are used to discover candidate negative statements that can be overwhelming sometimes, and not all useful. For example, 70% of peers of Stephen Hawking won the Nobel Prize in Physics, but only 2% are indian. Then the negative statement "not winning a Nobel Prize in Physics" is more salient to Stephen Hawking than "not indian". For this reason, we proceed to rank the inferred candidate negative statements using relative frequency (what portion of the entity's peers have a certain statement). Finally, we output the top-k negations for every entity in the dataset.
+In brief: Given a structured-information store (in this case a tabular dataset), we want to discover **useful negative statements** about entities in the dataset. A useful negation is a negative statement about an entity that is *noteworthy*. Two examples are "**Stephen Hawking did not win the Nobel Pize in Physics**" and "**Switzerland is not a member of the EU**". We discover these useful negations using what we call the *peer-based statistical inference method*. We select *highly* related entities (**peers**) to an entity e, that set expectations about e, where the negation of these expectations are potentially salient. Say, the dataset is about scientists, and the column titles (features) are: name, occupation(s), citizenship(s), gender, academic degree(s), award(s), etc... Then one reasonable feature to use for peering is occupation, where every winner's peers are other winners having a similar occupation(s). A local closed-world assumption is made within a group of peers. The peer groups are used to discover candidate negative statements that can be overwhelming sometimes, and not all useful. For example, 70% of peers of Stephen Hawking won the Nobel Prize in Physics, but only 2% are Indian citizens. Then the negative statement "not winning a Nobel Prize in Physics" is more salient to Stephen Hawking than "not Indian citizen". For this reason, we proceed to rank the inferred candidate negative statements using relative frequency (what portion of the entity's peers have a certain statement). Finally, we output the top-k negations for every entity in the dataset.
 
 # Input datasets
-With this project, we are providing three sample datasets*, but you can use your own. One example is the Turing Award winners dataset:
+We provid three sample input datasets*, but you can use your own. One example is the Turing Award winners dataset:
 
 | name | occupation | gender | citizen | employer | member of | academic degree | religion | residence | ethnicity | field | education | 
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
@@ -42,12 +42,12 @@ Some examples of results from this file: Format: entity [position: ¬(statement)
 This can be interpreted as: Berners-Lee is not a citizen of the United States, unlike 72% of **male** Turing Award winners. Also, Berners-Lee is/was not employed by Stanford University, unlike 19% of **male** Turing Award winners.
 
 # Feedback
-After using the code, we would like to hear from you. For any suggestions, bugs, or general feedback, you can contact us on:
+If you found this code useful we would be happy to hear from you. For any suggestions, bugs, or general feedback, you can contact us on:
 **E-mail**: harnaout@mpi-inf.mpg.de. **Twitter**: @negationInKBs.
 
-And check our webpage on useful negations in knowledge bases.
+And check our [webpage](https://www.mpi-inf.mpg.de/departments/databases-and-information-systems/research/knowledge-base-recall/interesting-negation-in-kbs) on useful negations in knowledge bases.
 
 # References
-[1] [Enriching Knowledge Bases with Interesting Negative Statements.](https://www.akbc.ws/2020/assets/pdfs/pSLmyZKaS.pdf)
+[1] [Enriching Knowledge Bases with Interesting Negative Statements, Arnaout et al., AKBC 2020](https://www.akbc.ws/2020/assets/pdfs/pSLmyZKaS.pdf)
 
-[2] [5-min presentation summarizing the paper in [1]](https://www.youtube.com/watch?v=Q-C2MbzGXjc)
+[2] [5-min video presentation summarizing the paper [1]](https://www.youtube.com/watch?v=Q-C2MbzGXjc)
